@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:shelf/shelf.dart' as shelf;
 import 'package:shelf/shelf_io.dart' as io;
 
@@ -5,7 +7,7 @@ void main() {
   var handler = const shelf.Pipeline().addMiddleware(shelf.logRequests())
       .addHandler(_echoRequest);
 
-  io.serve(handler, 'localhost', 8080).then((server) {
+  io.serve(handler, InternetAddress.anyIPv4, 9669).then((server) {
     print('Serving at http://${server.address.host}:${server.port}');
   });
 }
