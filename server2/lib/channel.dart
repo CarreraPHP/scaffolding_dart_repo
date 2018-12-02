@@ -1,10 +1,12 @@
 import 'server2.dart';
+import 'model/schema.dart';
 
 /// This type initializes an application.
 ///
 /// Override methods in this class to set up routes and initialize services like
 /// database connections. See http://aqueduct.io/docs/http/channel/.
 class Server2Channel extends ApplicationChannel {
+  ManagedContext context;
   /// Initialize services in this method.
   ///
   /// Implement this method to initialize services, read values from [options]
@@ -13,7 +15,12 @@ class Server2Channel extends ApplicationChannel {
   /// This method is invoked prior to [entryPoint] being accessed.
   @override
   Future prepare() async {
+    final datamodel = ManagedDataModel.fromCurrentMirrorSystem();
+    final store = PostgreSQLPersistentStore.fromConnectionInfo("dart", "dart", "localhost", 5732, "Scaffolding");
+    context = ManagedContext(datamodel, store);
+
     logger.onRecord.listen((rec) => print("$rec ${rec.error ?? ""} ${rec.stackTrace ?? ""}"));
+
   }
 
   /// Construct the request channel.
