@@ -8,4 +8,7 @@ export 'dart:io';
 
 export 'package:aqueduct/aqueduct.dart';
 
+export 'model/scf_schema.dart';
+export 'model/scf_table.dart';
+
 export 'channel.dart';

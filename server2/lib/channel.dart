@@ -1,5 +1,4 @@
 import 'server2.dart';
-import 'model/schema.dart';
 
 /// This type initializes an application.
 ///
@@ -16,7 +15,7 @@ class Server2Channel extends ApplicationChannel {
   @override
   Future prepare() async {
     final datamodel = ManagedDataModel.fromCurrentMirrorSystem();
-    final store = PostgreSQLPersistentStore.fromConnectionInfo("dart", "dart", "localhost", 5732, "Scaffolding");
+    final store = PostgreSQLPersistentStore.fromConnectionInfo("dart", "dart", "10.1.86.88", 5732, "Scaffolding");
     context = ManagedContext(datamodel, store);
 
     logger.onRecord.listen((rec) => print("$rec ${rec.error ?? ""} ${rec.stackTrace ?? ""}"));
