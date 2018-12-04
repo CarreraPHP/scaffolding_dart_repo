@@ -1,9 +1,8 @@
 import '../server2.dart';
 
-class ScfTable extends ManagedObject<_ScfTable> implements _ScfTable {}
+class ScfColumn extends ManagedObject<_ScfColumn> implements _ScfColumn {}
 
-class _ScfTable {
-  
+class _ScfColumn {
   @Column(autoincrement: true, primaryKey: true, nullable: false)
   int id;
 
@@ -16,12 +15,11 @@ class _ScfTable {
   @Column(defaultValue: "''")
   String description;
 
-  @Relate(#tables, onDelete: DeleteRule.cascade)
-  ScfSchema schema;
+  String dataType;
 
-  ManagedSet<ScfColumn> columns;
+  @Relate(#lhsColumns)
+  ScfRelationship lhsRelationship;
 
-  ManagedSet<ScfRelationship> relationships;
-
-  ManagedSet<ScfRhsRelationship> rhsRelationships;
+  @Relate(#columns)
+  ScfTable ownerTable;
 }
