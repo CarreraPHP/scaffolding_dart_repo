@@ -1,0 +1,25 @@
+<material-drawer temporary end #drawer="drawer">
+  <div *deferredContent>
+    <!-- Drawer content goes here -->
+  </div>
+</material-drawer>
+<material-content>
+  <header class="material-header shadow">
+    <div class="material-header-row">
+      <!-- This button will toggle (open/close) the drawer -->
+      <material-button icon
+          class="material-drawer-button" (trigger)="drawer.toggle()">
+        <material-icon icon="menu"></material-icon>
+      </material-button>
+      <!-- Other header info goes here -->
+      <div class="material-spacer"></div>
+      <material-button icon
+          class="material-drawer-button" (trigger)="drawer.toggle()">
+        <material-icon icon="menu"></material-icon>
+      </material-button>
+    </div>
+  </header>
+  <div>
+    <h1>My First AngularDart App</h1>
+  </div>
+</material-content>
