@@ -1,5 +1,0 @@
-name: Dart_Server
-version: 0.0.1
-description: Dart Server based on Shelf.
-dependencies:
-  shelf: ^0.7.3+3
