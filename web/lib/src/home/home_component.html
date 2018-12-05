@@ -1,25 +1,38 @@
-<material-drawer temporary end #drawer="drawer">
-  <div *deferredContent>
-    <!-- Drawer content goes here -->
+<header class="material-header shadow">
+  <div class="material-header-row">
+    <!-- This button will toggle (open/close) the drawer -->
+    <material-button
+      icon
+      class="material-drawer-button"
+      (trigger)="drawer.toggle()"
+    >
+      <material-icon icon="menu"></material-icon>
+      <material-ripple></material-ripple>
+    </material-button>
+    <!-- Other header info goes here -->
+    <div class="material-spacer"></div>
+    <nav>
+      <material-button> Register </material-button>
+      <material-button> Login </material-button>
+      <material-menu [MenuModel]="userAccountMenuList">
+          <section menu-button>
+              Account
+              <material-icon icon="arrow_drop_down" baseline></material-icon>
+          </section>
+      </material-menu>
+    </nav>
   </div>
+</header>
+<material-drawer persistent #drawer="drawer">
+  <material-list *deferredContent>
+    <div group>
+        <material-list-item> Schema List </material-list-item>
+        <material-list-item> Table List </material-list-item>
+        <material-list-item> Relationship List </material-list-item>
+        <material-list-item> Column List </material-list-item>
+    </div>
+  </material-list>
 </material-drawer>
 <material-content>
-  <header class="material-header shadow">
-    <div class="material-header-row">
-      <!-- This button will toggle (open/close) the drawer -->
-      <material-button icon
-          class="material-drawer-button" (trigger)="drawer.toggle()">
-        <material-icon icon="menu"></material-icon>
-      </material-button>
-      <!-- Other header info goes here -->
-      <div class="material-spacer"></div>
-      <material-button icon
-          class="material-drawer-button" (trigger)="drawer.toggle()">
-        <material-icon icon="menu"></material-icon>
-      </material-button>
-    </div>
-  </header>
-  <div>
-    <h1>My First AngularDart App</h1>
-  </div>
+  <div><h1>My First AngularDart App</h1></div>
 </material-content>

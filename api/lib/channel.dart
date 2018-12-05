@@ -45,7 +45,7 @@ class ScaffoldingApiChannel extends ApplicationChannel
     final router = Router();
 
     router.route("/*").link(() => FileController("ng")
-      ..addCachePolicy(CachePolicy(expirationFromNow: Duration(days: 365)),
+      ..addCachePolicy(CachePolicy(expirationFromNow: Duration(seconds: 10)),
           (path) => path.endsWith(".js") || path.endsWith(".css")));
 
     /* OAuth 2.0 Endpoints */
