@@ -16,8 +16,12 @@ import 'package:angular_forms/angular_forms.dart';
     MaterialButtonComponent,
     MaterialTooltipTargetDirective,
   ],
+  styleUrls: [
+    'package:angular_components/css/mdc_web/card/mdc-card.scss.css',
+    'landing_component.scss.css'
+  ],
   preserveWhitespace: true,
-  encapsulation: ViewEncapsulation.Emulated
+  // encapsulation: ViewEncapsulation.Emulated
 )
 class LandingComponent {
   

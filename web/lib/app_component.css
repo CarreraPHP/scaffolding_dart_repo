@@ -1,3 +1,5 @@
 :host {
     /* This is equivalent of the 'body' selector of a page. */
 }
+
+.active-route {color: #039be5}
