@@ -30,3 +30,16 @@ To revert back to tracking the files uses the below commands.
 git update-index --no-assume-unchanged api/config.yaml
 git update-index --no-assume-unchanged api/config.src.yaml
 ```
+
+If struck with SASS Issue with the Stagehand generated Code. add below code to your `build.yaml` file
+
+```
+targets:
+  $default:
+    builders:      
+      sass_builder:
+        options:
+          outputStyle: compressed
+      angular_components|scss_builder:
+        enabled: true
+```

@@ -1,4 +1,5 @@
 import 'package:angular/angular.dart';
+import 'package:angular_router/angular_router.dart';
 
 import 'src/home/home_component.dart';
 import 'src/landing/landing_component.dart';
@@ -15,11 +16,13 @@ import 'src/routes.dart';
   directives: [
     HomeComponent,
     LandingComponent,
+    routerDirectives
   ],
   exports: [
     RoutePaths,
     Routes,
-  ]
+  ],
+  providers: [routerProviders]
 )
 class AppComponent {
   // Nothing here yet. All logic is in TodoListComponent.

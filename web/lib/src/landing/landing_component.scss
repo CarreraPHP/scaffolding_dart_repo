@@ -1,0 +1,11 @@
+@import 'package:angular_components/css/material/material';
+
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.demo-size {
+  width: $mat-grid * 44;
+}
