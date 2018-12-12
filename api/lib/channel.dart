@@ -26,8 +26,9 @@ class ScaffoldingApiChannel extends ApplicationChannel
     logger.onRecord.listen(
         (rec) => print("$rec ${rec.error ?? ""} ${rec.stackTrace ?? ""}"));
 
-    final config = ScaffoldingApiConfiguration(options.configurationFilePath);
+    CORSPolicy.defaultPolicy.allowedOrigins = ["http://localhost:9669/"];
 
+    final config = ScaffoldingApiConfiguration(options.configurationFilePath);
     context = contextWithConnectionInfo(config.database);
 
     final authStorage = ManagedAuthDelegate<User>(context);

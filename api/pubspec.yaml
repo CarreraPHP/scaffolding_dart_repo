@@ -8,7 +8,12 @@ environment:
 
 dependencies:
   aqueduct: ^3.0.0
+  web: 
+    path: ../web
 
 dev_dependencies:
   test: ^1.0.0
   aqueduct_test: ^1.0.0
+  angular: ^5.1.0
+  angular_router: 2.0.0-alpha+20
+  angular_components: ^0.10.1
