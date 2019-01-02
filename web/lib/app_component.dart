@@ -22,7 +22,7 @@ import 'src/routes.dart';
     RoutePaths,
     Routes,
   ],
-  providers: [routerProviders]
+  providers: []
 )
 class AppComponent {
   // Nothing here yet. All logic is in TodoListComponent.
