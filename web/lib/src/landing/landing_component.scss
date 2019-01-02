@@ -1,11 +1,71 @@
-@import 'package:angular_components/css/material/material';
+@import "package:angular_components/css/material/material";
+@import "package:angular_components/css/mdc_web/theme/color-palette";
 
-:host {
+@import "package:angular_components/material_button/mixins";
+
+@import '../../../web/variables';
+
+// .primary {}
+@include button-background-color(".primary", $primary-color);
+@include button-color(".primary", $primary-font-color);
+
+// .secondary {}
+@include button-background-color(".secondary", $secondary-color);
+@include button-color(".secondary", $secondary-font-color);
+
+.form_holder {
   display: flex;
   align-items: center;
   justify-content: center;
+  position:absolute;
+  height: 100%;
+  width: 100%;
 }
 
-.demo-size {
-  width: $mat-grid * 44;
+.register_form {
+  $width: $mat-grid * 57;
+  $padding: $mat-grid * 3;
+  $label-width: $mat-grid * 22;
+  $label-width-with-padding: $label-width + $padding;
+
+  .title {
+    padding-top: 0;
+    border-bottom: 2px solid $primary-color;
+
+        h2 {
+            margin: 0 0 $padding;
+        }
+  }
+  
+  .primary_content {
+      padding: $padding 0;
+  }
+
+  .full_width {
+    width: 100%;
+    display: flex;
+    gap: $padding;
+  }
+
+  &.mdc-card {
+    width: $width;
+    background-color: $base-card-background-color;
+    padding: $padding;
+  }
+
+  .rf_label {
+    width: $label-width;
+    display: inline-flex;
+  }
+
+  .rf_label + material-input {
+    width: calc(100% - #{$label-width});
+  }
+
+  .mdc-card__actions {
+      flex-direction: column;
+      align-items: flex-end;
+      padding: $padding 0 0;
+      border-top: 2px solid $secondary-color;
+  }
 }

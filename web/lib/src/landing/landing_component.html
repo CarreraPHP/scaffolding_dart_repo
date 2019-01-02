@@ -1,45 +1,50 @@
-Landing Page
-
 <section class="form_holder">
-  <form>
-    <div class="full-width">
-      <material-input type="text" label="username"></material-input>
+  <form
+    [ngFormModel]="registerForm"
+    #rf="ngForm"
+    novalidate
+    (ngSubmit)="doRegister($event)"
+  >
+    <div class="mdc-card register_form">
+      <div class="full_width title">
+        <h2>Register</h2>
+      </div>
+      <div class="primary_content">
+        <div class="full_width">
+          <span class="rf_label">User name:</span>
+          <material-input
+            type="text"
+            ngControl="username"
+            label="username"
+          ></material-input>
+        </div>
+        <div class="full_width">
+          <span class="rf_label">Email:</span>
+          <material-input type="email" ngControl="email"></material-input>
+        </div>
+        <div class="full_width">
+          <span class="rf_label">Password:</span>
+          <material-input type="password" ngControl="password"></material-input>
+        </div>
+        <div class="full_width">
+          <span class="rf_label">Password Confirmation:</span>
+          <material-input
+            type="password"
+            ngControl="passwordConfirmation"
+          ></material-input>
+        </div>
+      </div>
+      <div class="mdc-card__actions">
+        <div class="mdc-card__action-buttons">
+          <material-button class="primary" raised [disabled]="!rf.pristine && rf.valid">
+            <material-icon icon="save"></material-icon> Register
+          </material-button>
+          <material-button class="secondary" raised>
+            <material-icon icon="cancel"></material-icon> Cancel
+          </material-button>
+        </div>
+      </div>
     </div>
-    <div class="full-width"><material-input type="email"></material-input></div>
-    <div class="full-width">
-      <material-input type="password"></material-input>
-    </div>
+    {{ value | json }}
   </form>
-</section>
-
-<section>
-  <h2>Outlined</h2>
-  <div class="mdc-card demo-size">
-    <div class="mdc-card__media mdc-card__media--16-9 demo-card__media"></div>
-    <div class="demo-card__primary">
-      <h2 class="demo-card__title">Our Changing Planet</h2>
-      <h3 class="demo-card__subtitle">by Kurt Wagner</h3>
-    </div>
-    <div class="demo-card__secondary">
-      Visit ten places on our planet that are undergoing the biggest changes
-      today.
-    </div>
-    <div class="mdc-card__actions">
-      <div class="mdc-card__action-buttons">
-        <material-button>Read</material-button>
-        <material-button>Bookmark</material-button>
-      </div>
-      <div class="mdc-card__action-icons">
-        <material-button icon>
-          <material-icon icon="favorite_border"></material-icon>
-        </material-button>
-        <material-button icon>
-          <material-icon icon="share"></material-icon>
-        </material-button>
-        <material-button icon>
-          <material-icon icon="more_vert"></material-icon>
-        </material-button>
-      </div>
-    </div>
-  </div>
 </section>
