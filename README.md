@@ -33,7 +33,7 @@ git update-index --no-assume-unchanged api/config.src.yaml
 
 If struck with SASS Issue with the Stagehand generated Code. add below code to your `build.yaml` file
 
-```
+```yaml
 targets:
   $default:
     builders:      

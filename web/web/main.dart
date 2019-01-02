@@ -4,12 +4,12 @@ import 'package:web/app_component.template.dart' as ng;
 
 import 'main.template.dart' as self;
 
-const useHashLS = true;
+// const useHashLS = true;
 @GenerateInjector(
   routerProvidersHash,
 )
-final InjectorFactory injector = self.injector$Injector;
+final InjectorFactory scaffoldingApp = self.scaffoldingApp$Injector;
 
 void main() {
-  runApp(ng.AppComponentNgFactory, createInjector: injector);
+  runApp(ng.AppComponentNgFactory, createInjector: scaffoldingApp);
 }

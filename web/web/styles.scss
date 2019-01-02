@@ -1,10 +1,18 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto);
-@import url(https://fonts.googleapis.com/css?family=Material+Icons);
+@import 'iconfont/material-icons.css';
+
+@import 'package:angular_components/css/mdc_web/theme/color-palette';
+@import 'package:angular_components/css/mdc_web/theme/mixins';
+@import 'package:angular_components/css/material/material';
+
+@import 'variables';
 
 body {
-  /* max-width: 600px;
-  margin: 0 auto;
-  padding: 5vw; */
-  margin: 0;
-  font-family: Roboto, Helvetica, Arial, sans-serif;
+    /* max-width: 600px;
+    margin: 0 auto;
+    padding: 5vw; */
+    margin: 0;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    background-color: $base-background-color;
+    color: $base-font-color;
 }

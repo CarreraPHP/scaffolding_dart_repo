@@ -13,3 +13,7 @@ pubspec.lock
 doc/api/
 api/config.yaml
 api/config.src.yaml
+
+# Ignore IntellJ project files.
+*.ipr
+*.iws

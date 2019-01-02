@@ -29,7 +29,7 @@ class Routes {
   );
 
   static final home = RouteDefinition(
-    routePath: RoutePaths.login,
+    routePath: RoutePaths.home,
     component: homePage.HomeComponentNgFactory,
   );
 
