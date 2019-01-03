@@ -1,21 +1,13 @@
 <section class="form_holder">
-  <form
-    [ngFormModel]="registerForm"
-    #rf="ngForm"
-    novalidate
-    (ngSubmit)="doRegister($event)"
-  >
+  <form [ngFormModel]="registerForm" #rf="ngForm" novalidate>
     <div class="mdc-card register_form">
-      <div class="full_width title">
-        <h2>Register</h2>
-      </div>
+      <div class="full_width title"><h2>Register</h2></div>
       <div class="primary_content">
         <div class="full_width">
           <span class="rf_label">User name:</span>
           <material-input
             type="text"
             ngControl="username"
-            label="username"
           ></material-input>
         </div>
         <div class="full_width">
@@ -36,15 +28,26 @@
       </div>
       <div class="mdc-card__actions">
         <div class="mdc-card__action-buttons">
-          <material-button class="primary" raised [disabled]="!rf.pristine && rf.valid">
+          <material-button
+            class="primary"
+            raised
+            [disabled]="rf.pristine || !rf.valid"
+            (click)="doRegister($event)"
+          >
             <material-icon icon="save"></material-icon> Register
           </material-button>
-          <material-button class="secondary" raised>
+          <material-button
+            class="secondary"
+            raised
+            (click)="doReset($event)"
+          >
             <material-icon icon="cancel"></material-icon> Cancel
           </material-button>
         </div>
       </div>
     </div>
-    {{ value | json }}
+    <!-- {{ value | json }}
+    <hr />
+    {{ errors | json }} -->
   </form>
 </section>
