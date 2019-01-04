@@ -8,6 +8,8 @@ import 'package:angular_components/material_tooltip/material_tooltip.dart';
 import 'package:angular_components/material_button/material_button.dart';
 import 'package:angular_forms/angular_forms.dart';
 
+import 'landing_service.dart';
+
 class ScfValidators {
   static ValidatorFn passwordConfirmation(
       String pControlName, String pControlConfirmationName) {
@@ -40,13 +42,14 @@ class ScfValidators {
     'landing_component.scss.css'
   ],
   preserveWhitespace: true,
+  providers: [ClassProvider(LandingService)]
   // encapsulation: ViewEncapsulation.None,
 )
 class LandingComponent {
   ControlGroup registerForm;
-  // NgFormModel fd;
+  LandingService _landingService;
 
-  LandingComponent() {
+  LandingComponent(this._landingService) {
     registerForm = FormBuilder.controlGroup(
       {
         'username': [
@@ -81,9 +84,14 @@ class LandingComponent {
     );
   }
 
-  doRegister(e) {
+  doRegister(e) async {
+    Map<String, dynamic> response = await _landingService.register(username: "", password: "");
+    
     window.console.log("gets called when submitted....");
-    window.console.log(e);
+    window.console.log({
+      'event': e,
+      'response': response
+    });
   }
   
   doReset(e) {
